@@ -8,45 +8,60 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1> Temperature Converter</h1>
-    <div id="converter">
-        <div class="bo">
+  <header>
+    <h1>Temperature Converter</h1>
+  </header>
 
-            <label id="yes">Celsius</label> <br>
-         <input type="number" value="0" id="cel" class="input">
-        </div> 
-        <div class="bo">
-            <label id="no">Fahrenheit</label><br>
-         <input type="number" value="32" id="value" class="input">
-        </div>
+  <main>
+    <div class="container">
+      <label for="inputUnit">Input Temperature:</label>
+      <input type="number" id="inputTemperature" placeholder="Enter temperature" />
+      <select id="inputUnit">
+        <option value="celsius">Celsius</option>
+        <option value="fahrenheit">Fahrenheit</option>
+        <option value="kelvin">Kelvin</option>
+        <option value="rankine">Rankine</option>
+        <option value="reaumur">Reaumur</option>
+        <option value="triple">Triple Point of Water</option>
+      </select>
     </div>
-    
-    
 
-    <script>
-        var cel = document.getElementById("cel");
+    <div class="container">
+      <label for="outputUnit">Output Temperature:</label>
+      <input type="text" id="outputTemperature" readonly />
+      <select id="outputUnit">
+        <option value="celsius">Celsius</option>
+        <option value="fahrenheit">Fahrenheit</option>
+        <option value="kelvin">Kelvin</option>
+        <option value="rankine">Rankine</option>
+        <option value="reaumur">Reaumur</option>
+        <option value="triple">Triple Point of Water</option>
+      </select>
+    </div>
 
-var fah = document.getElementById("value");
+    <button onclick="convertTemperature()">Convert</button>
 
-cel.addEventListener("input", function () {
-     let c= this.value;
-     let f = (c *  9/5 ) +32;
-     
-     if(!Number.isInteger (f)){
-        f = f.toFixed(4);
-     }
-     fah.value= f;
-     
-});
+    <div class="formulas">
+      <h2>Formulas</h2>
+      <p>Celsius to Fahrenheit Conversion: °F = °C × 9/5 + 32</p>
+      <p>Celsius to Kelvin Conversion: K = °C + 273.15</p>
+      <p>Celsius to Rankine Conversion: °R = °C × 9/5 + 491.67</p>
+      <p>Fahrenheit to Celsius Conversion: °C = (°F - 32) × 5/9</p>
+      <p>Fahrenheit to Kelvin Conversion: K = (°F + 459.67) × 5/9</p>
+      <p>Fahrenheit to Rankine Conversion: °R = °F + 459.67</p>
+      <p>Kelvin to Celsius Conversion: °C = K - 273.15</p>
+      <p>Kelvin to Fahrenheit Conversion: °F = K × 9/5 - 459.67</p>
+      <p>Kelvin to Rankine Conversion: °R = K × 9/5</p>
+      <p>Rankine to Celsius Conversion: °C = °R × 5/9 - 273.15</p>
+      <p>Rankine to Fahrenheit Conversion: °F = °R - 459.67</p>
+      <p>Rankine to Kelvin Conversion: K = °R × 5/9</p>
+    </div>
+  </main>
 
-fah.addEventListener("input",function () {
-    let f = this.value;
-    let c = (f - 32) * 5/9 ;
-    if(!Number.isInteger (c)){
-        c=c.toFixed(4);
-    }
-    cel.value = c;
-});
-    </script>
+  <footer>
+    <p>&copy; 2023 Temperature Converter. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
